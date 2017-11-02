@@ -18,7 +18,7 @@ $streamdrtr = 'stream.php'; // For the directory of the `stream.php`, you can ch
 - Pull requests can be follow up here, let's help each other to make the script better.
 
 ## Credits
-- [p4v800m/google-drive-proxy-jwplayer](https://github.com/p4v800m/google-drive-proxy-jwplayer) The original source yet kinda deleted for some reason.
+- [p4v800m/google-drive-proxy-jwplayer](https://github.com/p4v800m/google-drive-proxy-jwplayer) The original source.
 - [Zebraslive/gdproxyx](https://github.com/Zebraslive/gdproxyx) The backup version.
 - [animedoodee/JwPlayer-for-drivestream](https://github.com/animedoodee/JwPlayer-for-drivestream) Another backup version.
 
