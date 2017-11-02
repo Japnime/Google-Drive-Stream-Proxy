@@ -59,8 +59,11 @@
             $domain = $var[0];
             $redirector = preg_replace("@(.*)videoplayback(.*)@si","$1", $domain);
             $hiddomain = base64_encode(str_replace(array("18|https", "22|https", "37|https", "59|https","c.drive.google.com"),array("https", "https", "https", "https", "googlevideo.com"), $redirector));
-    
-            $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/\/[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&api=japnime&","/stream.php","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
+
+            $modiapi = 'japnime';
+            $streamdrtr = 'stream.php';
+
+            $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/\/[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&api=$modiapi&","/$streamdrtr","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
             $expire = substr(preg_replace("/expire=([\d]+)/",$o[$r],$expire, $d)?$expire[1]:false, 3);
         }
         ksort($o);
