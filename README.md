@@ -1,7 +1,7 @@
 # Google-Drive-Stream-Proxy
 > Alternative Google Drive Stream Script
 
-The code is re-modified for the users to be able understand the function of this script.
+The code is re-modified for the users to be able to understand the function of this script.
 
 Here's the demo: [Click me](https://japnimeserver.com/drive/)
 
