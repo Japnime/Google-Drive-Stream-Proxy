@@ -1,17 +1,18 @@
 # Google-Drive-Stream-Proxy
 > Alternative Google Drive Stream Script
 
-The code is re-modified for the users to be able to understand the function of this script. [Click me](https://japnimeserver.com/drive/) if you want to see the demo, use [json parser](http://json.parser.online.fr/) to get the variables correctly.
+The code is re-modified for the users to be able to understand the function of this script. Demo will be disabled for a while due to bandwidth traffic problem.
 
 ## Guide and Updates
-- From the script, you can fetch the google drive id by this format `fetch.php?id=` (Only the ID itself, not the url).
+- From the script, you can fetch the google drive id by this format `embed.php?id=` (Only the ID itself, not the url).
 - You may place the file `stream.php` everywhere, it depends on how you will make it creatively.
 
-### fetch.php updated
-```php
-$modiapi = 'japnime'; // For your `$api=`
-$streamdrtr = 'stream.php'; // For the directory of the `stream.php`, you can change it between domain or file only
-```
+### fetch.php updated: it became embed.php
+- `fetch.php` will be gone for a while since the file itself needs the improvement of getting the variables correctly.
+- Changed the file to `embed.php`; stream the proxied url links.
+
+### func.php released
+- From scrapping `fetch.php`, the functions of it is in this file.
 
 ## Contribution
 - Fork and star this repository.
