@@ -7,13 +7,6 @@ The code is re-modified for the users to be able to understand the function of t
 - From the script, you can fetch the google drive id by this format `embed.php?id=` (Only the ID itself, not the url).
 - You may place the file `stream.php` everywhere, it depends on how you will make it creatively.
 
-### fetch.php updated: it became embed.php
-- `fetch.php` will be gone for a while since the file itself needs the improvement of getting the variables correctly.
-- Changed the file to `embed.php`; stream the proxied url links.
-
-### func.php released
-- From scrapping `fetch.php`, the functions of it is in this file.
-
 ## Contribution
 - Fork and star this repository.
 - Pull requests can be follow up here, let's help each other to make the script better.
