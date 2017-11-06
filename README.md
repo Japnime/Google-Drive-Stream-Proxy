@@ -3,7 +3,7 @@
 
 The code is re-modified for the users to be able to understand the function of this script. Demo will be disabled for a while due to bandwidth traffic problem.
 
-## Guide and Updates
+## Guide and [Updates](https://github.com/japnimedev/Google-Drive-Stream-Proxy/blob/master/LOG.md)
 - From the script, you can fetch the google drive id by this format `embed.php?id=` (Only the ID itself, not the url).
 - You may place the file `stream.php` everywhere, it depends on how you will make it creatively.
 
