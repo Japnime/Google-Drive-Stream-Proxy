@@ -1,7 +1,3 @@
-# Update Logs
-
-Just some logs for the improvement of this script.
-
 ## v1.0.1
 
 ### func.php
