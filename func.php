@@ -85,7 +85,7 @@
         $modiapi = 'japnime';
         $streamdrtr = 'stream.php';
             
-        $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/\/[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&api=$modiapi&","/$streamdrtr","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
+        $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/https:\/\/+[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&api=$modiapi&","/$streamdrtr","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
         $expire = substr(preg_replace("/expire=([\d]+)/",$o[$r],$expire, $d)?$expire[1]:false, 3);
         }
         
