@@ -1,5 +1,6 @@
 ## v1.0.1 updates
 
+- `stream.php` added $cnr variable.
 - `func.php` fixed "https://" preg_replace.
 - `func.php` added cache function.
 
