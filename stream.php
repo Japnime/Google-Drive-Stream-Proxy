@@ -8,11 +8,11 @@
     }
     
     ini_set('max_execution_time', 0); 
-	$encrypt_method = "AES-256-CBC";
-	$secret_key = 'PWaanA*()!#EGyKaaZ';
-	$secret_iv = 'PWAsrqWUN*()!#RETyAAga';
-	$key = hash('sha256', $secret_key);
-	$iv = substr(hash('sha256', $secret_iv), 0, 16);
+    $encrypt_method = "AES-256-CBC";
+    $secret_key = 'PWaanA*()!#EGyKaaZ';
+    $secret_iv = 'PWAsrqWUN*()!#RETyAAga';
+    $key = hash('sha256', $secret_key);
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
 
     $domain = base64_decode($_GET['dom']);
     $id = $_GET['id'];
@@ -29,6 +29,7 @@
     $ei = $_GET['ei'];
     $driveid = openssl_decrypt(base64_decode($_GET['driveid']), $encrypt_method, $key, 0, $iv);
     $mime = $_GET['mime'];
+    $cnr = $_GET['cnr'];
     $lmt = $_GET['lmt'];
     $mt = $_GET['mt'];
     $ip = $_GET['ip'];
@@ -41,7 +42,7 @@
     $app = $_GET['app'];
     $ck = $_GET['ck'];
 
-    $v = "".$domain."videoplayback?id=$id&itag=$itag&source=$source&requiressl=$requiressl&ttl=$ttl&mm=$mm&mn=$mn&ms=$ms&mv=$mv&pl=$pl&ei=$ei&driveid=$driveid&mime=$mime&lmt=$lmt&mt=$mt&ip=$ip&ipbits=$ipbits&susci=$susci&expire=$expire&cp=$cp&sparams=$sparams&signature=$signature&key=$key&app=$app";
+    $v = "".$domain."videoplayback?id=$id&itag=$itag&source=$source&requiressl=$requiressl&ttl=$ttl&mm=$mm&mn=$mn&ms=$ms&mv=$mv&pl=$pl&ei=$ei&driveid=$driveid&mime=$mime&cnr=$cnr&lmt=$lmt&mt=$mt&ip=$ip&ipbits=$ipbits&susci=$susci&expire=$expire&cp=$cp&sparams=$sparams&signature=$signature&key=$key&app=$app";
 
     $e = $_GET['expire'];
     set_time_limit(0);
