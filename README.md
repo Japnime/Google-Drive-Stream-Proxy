@@ -12,6 +12,10 @@ The code is re-modified for the users to be able to understand the function of t
 - Fork and star this repository.
 - Pull requests can be follow up here, let's help each other to make the script better.
 
+## Suggestion
+- [Google Plus Stream](https://github.com/japnimedev/Google-Plus-Stream)
+- [Facebook Stream Player](https://github.com/japnimedev/Facebook-Stream-Player)
+
 ## Credits
 - [p4v800m/google-drive-proxy-jwplayer](https://github.com/p4v800m/google-drive-proxy-jwplayer) The original source.
 - [Zebraslive/gdproxyx](https://github.com/Zebraslive/gdproxyx) The backup version.
