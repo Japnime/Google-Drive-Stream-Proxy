@@ -1,6 +1,5 @@
 ## v1.0.1 updates
 
-- `cache` folder has been added.
 - `embed.php` added the new cache function.
 - `func.php` removed old cache function.
 - `stream.php` added $cnr variable.
