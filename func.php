@@ -15,27 +15,8 @@
     	curl_close($ch);
     	return $result;
     }
-    
-    function dumpcache($id, $sources) {
-    	$interval = gmdate('Y-m-d H:i:s', time() + 3600*(+7+date('I')));
-    	$cachefile = md5('GDSP_'.$id.'_MD5');
-    	$gsources = urldecode($sources);
-    	$cachedata = strtotime($interval).'@@'.$gsources;
-    
-    	$data = fopen("cache/".$cachefile.".cache",'w');
-    	fwrite($data, $cachedata);
-    	fclose($data);
-    
-    	if (file_exists('cache/'.$cachefile.'.cache')) {
-    		$datacache = $gsources;
-    	} else {
-    		$datacache = $gsources;
-    	}
-    
-    	return $datacache;
-    }
 
-    function getproxyurl($id) {
+    function driveproxy($id) {
         $gdata = [];
         $gurl = 'https://drive.google.com/get_video_info?docid='.$id.'';
         $gparse = curl($gurl);
@@ -92,34 +73,9 @@
         asort($o);
         
         foreach ($o as $quality => $file) {
-            $sources .= '{"type": "video/mp4", "label": "'.$quality.'", "file": "'.$file.'&apps=japnimeserver.com"},';
+            $urls = urldecode($file);
+            $sources .= '{"type": "video/mp4", "label": "'.$quality.'", "file": "'.$urls.'&apps=japnimeserver.com"},';
         }
         return '['.rtrim($sources, ',').']';
-    }
-
-    function driveproxy($id) {
-    	$cachefile = md5('GDSP_'.$id.'_MD5');
-    	if (file_exists('cache/'.$cachefile.'.cache')) {
-    		$gcntnt = file_get_contents('cache/'.$cachefile.'.cache');
-    		$sdata = explode('@@', $gcntnt);
-    		$interval = gmdate('Y-m-d H:i:s', time() + 3600*(+7+date('I')));
-    		$timeout = strtotime($interval) - $sdata[0];
-    
-    		if ($timeout >= 900) {
-    			$gsources = trim(getproxyurl($id));
-    			$dump = dumpcache($id, $gsources);
-    			$result = explode('|', $dump);
-    			$gdcache = $result[0];
-    		} else {
-    			$gdcache = $sdata[1];
-    		}
-    	} else {
-    		$gsources = trim(getproxyurl($id));
-    		$dump = dumpcache($id, $gsources);
-    		$result = explode('|', $dump);
-    		$gdcache = $result[0];
-    	}
-    
-    	return $gdcache;
     }
 ?>
