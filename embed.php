@@ -6,6 +6,18 @@
         $driveid = $_GET['id'];
         $gdata = driveproxy($driveid);
     }
+
+    $cache = md5('googleproxy_'.$driveid.'_hashedmd5');    
+    $scriptcache = 'cache/driveproxy_cache-'.$cache.'';
+    $timeout = 15000;
+
+    if (file_exists($scriptcache) && time() - $timeout < filemtime($scriptcache)) {
+        echo "<!-- File generated: ".gmdate('Y-m-d H:i:s', filemtime($scriptcache))." -->\n";
+        include($scriptcache);
+        exit;
+    }
+    
+    ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,3 +54,9 @@
 	</script>
     </body>
 </html>
+<?php
+    $storedcache = fopen($scriptcache, 'w');
+    fwrite($storedcache, ob_get_contents());
+    fclose($storedcache);
+    ob_end_flush();
+?>
