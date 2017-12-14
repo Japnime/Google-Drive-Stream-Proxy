@@ -1,7 +1,7 @@
 # Google-Drive-Stream-Proxy
 > Alternative Google Drive Stream Script
 
-The code is re-modified for the users to be able to understand the function of this script. You can check the demo here to my [server](https://japnimeserver.com/drive/index.php).
+The code is re-modified for the users to be able to understand the function of this script. Demo disabled due to transfer of hosting.
 
 ## Guide
 - From the script, you can fetch the google drive id by this format `embed.php?id=` (Only the ID itself, not the url).
