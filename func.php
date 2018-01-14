@@ -15,10 +15,18 @@
     	curl_close($ch);
     	return $result;
     }
-
+    
+    function randomizer($key){
+        $randomvar = array_rand($key);
+        $random = $key[$randomvar];
+        return $random;
+    }
+    
     function driveproxy($id) {
         $gdata = [];
-        $gurl = 'https://drive.google.com/get_video_info?docid='.$id.'';
+        $gkey = ["https://docs.google.com/get_video_info?docid=", "https://drive.google.com/get_video_info?docid="];
+        $gkeyrnd = randomizer($gkey);
+        $gurl = ''.$gkeyrnd.''.$id.'';
         $gparse = curl($gurl);
     
         parse_str($gparse, $gstring);
@@ -64,9 +72,14 @@
         $hiddomain = base64_encode(str_replace(array("18|https", "22|https", "37|https", "59|https","c.drive.google.com"),array("https", "https", "https", "https", "googlevideo.com"), $redirector));
     
         $modiapi = 'japnime';
-        $streamdrtr = 'stream.php';
+        $rndserver = [
+            "http://yourotherwebsite.com/stream.php",
+            "/directory/index.php",
+            "stream.php"
+            ];
+        $streamdrtr = randomizer($rndserver);
             
-        $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/https:\/\/+[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&api=$modiapi&","/$streamdrtr","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
+        $o[$r] = substr(preg_replace(array("@&driveid=(.+?)&@si","/https:\/\/+[^\/]+\.google\.com\/videoplayback/","@&ip=(.+?)&@si"),array("&driveid=$hashdrive&driveapi=$modiapi&","$streamdrtr","&ip=$1&ck=$gck[0]&dom=$hiddomain&"), $d), 3);
         $expire = substr(preg_replace("/expire=([\d]+)/",$o[$r],$expire, $d)?$expire[1]:false, 3);
         }
         
@@ -74,7 +87,7 @@
         
         foreach ($o as $quality => $file) {
             $urls = urldecode($file);
-            $sources .= '{"type": "video/mp4", "label": "'.$quality.'", "file": "'.$urls.'&apps=japnimeserver.com"},';
+            $sources .= '{"type": "video/mp4", "label": "'.$quality.'", "file": "'.$urls.'&server=japnimeserver.com"},';
         }
         return '['.rtrim($sources, ',').']';
     }
