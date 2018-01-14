@@ -1,3 +1,8 @@
+## v1.0.2 beta
+
+- `stream.php` recoded.
+- `func.php` added randomizer function.
+
 ## v1.0.1 updates
 
 - `embed.php` added the new cache function.
