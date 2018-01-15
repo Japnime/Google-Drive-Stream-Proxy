@@ -2,6 +2,8 @@
     ini_set('max_execution_time', 0);
     set_time_limit(0);
     header("Content-Type: video/mp4");
+    header('Accept-Ranges: bytes');
+    header("Content-length: ".$length);
     
     $encrypt_method = "AES-256-CBC";
     $secret_key = 'PWaanA*()!#EGyKaaZ';
@@ -54,6 +56,7 @@
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_COOKIE => 'DRIVE_STREAM='.$cookie
         );
+    $length = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
     curl_setopt_array($ch, $payload);
     $streamproxy = curl_exec($ch);
     return $streamproxy;
