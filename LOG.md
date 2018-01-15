@@ -1,5 +1,6 @@
 ## v1.0.2 beta
 
+- `stream.php` length time bug fixed.
 - `stream.php` recoded.
 - `func.php` added randomizer function.
 
