@@ -1,4 +1,5 @@
 # Google-Drive-Stream-Proxy
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE)
 > Alternative Google Drive Stream Script
 
 The code is re-modified for the users to be able to understand the function of this script. Beta viewing of the script is [here](https://japnimeserver.com/drive/). 
