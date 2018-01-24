@@ -1,3 +1,6 @@
+## v2.0.1
+- `stream.php` applied @Yokutto's patch.
+
 ## v2.0.0
 - `example.php` added.
 - `class.DriveProxy.php` added.
