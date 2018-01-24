@@ -24,6 +24,7 @@
     $mv = $_GET['mv'];
     $pl = $_GET['pl'];
     $ei = $_GET['ei'];
+    $susc = $_GET['susc'];
     $driveid = openssl_decrypt(base64_decode($_GET['driveid']), $encrypt_method, $key, 0, $iv);
     $mime = $_GET['mime'];
     $cnr = $_GET['cnr'];
@@ -39,7 +40,7 @@
     $app = $_GET['app'];
     $cookie = $_GET['token'];
     
-    $googledrive = "".$domain."videoplayback?id=$id&itag=$itag&source=$source&requiressl=$requiressl&ttl=$ttl&mm=$mm&mn=$mn&ms=$ms&mv=$mv&pl=$pl&ei=$ei&driveid=$driveid&mime=$mime&cnr=$cnr&lmt=$lmt&mt=$mt&ip=$ip&ipbits=$ipbits&susci=$susci&expire=$expire&cp=$cp&sparams=$sparams&signature=$signature&key=$key&app=$app";
+    $googledrive = "".$domain."videoplayback?id=$id&itag=$itag&source=$source&requiressl=$requiressl&ttl=$ttl&mm=$mm&mn=$mn&ms=$ms&mv=$mv&pl=$pl&ei=$ei&susc=$susc&driveid=$driveid&mime=$mime&cnr=$cnr&lmt=$lmt&mt=$mt&ip=$ip&ipbits=$ipbits&susci=$susci&expire=$expire&cp=$cp&sparams=$sparams&signature=$signature&key=$key&app=$app";
 
     $ch = curl_init();
     $useragent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36";
