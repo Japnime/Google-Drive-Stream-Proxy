@@ -179,7 +179,7 @@
             $solution = curl_getinfo($curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
     
             header("Content-Type: video/mp4");
-            header("Content-length: ".$get_size);
+            header("Content-length: ".$solution);
             $timeset = 0;
             
             if (isset($_SERVER['HTTP_RANGE']))
