@@ -1,9 +1,9 @@
 <?php
+
+    require_once(__DIR__ .'/class.DriveProxy.php');
+    
     ini_set('max_execution_time', 0);
     set_time_limit(0);
-    header("Content-Type: video/mp4");
-    header('Accept-Ranges: bytes');
-    header("Content-length: ".$length);
     
     $encrypt_method = "AES-256-CBC";
     $secret_key = 'PWaanA*()!#EGyKaaZ';
@@ -41,13 +41,19 @@
     $cookie = $_GET['token'];
     
     $googledrive = "".$domain."videoplayback?id=$id&itag=$itag&source=$source&requiressl=$requiressl&ttl=$ttl&mm=$mm&mn=$mn&ms=$ms&mv=$mv&pl=$pl&ei=$ei&susc=$susc&driveid=$driveid&mime=$mime&cnr=$cnr&lmt=$lmt&mt=$mt&ip=$ip&ipbits=$ipbits&susci=$susci&expire=$expire&cp=$cp&sparams=$sparams&signature=$signature&key=$key&app=$app";
-
-    $ch = curl_init();
     $useragent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36";
+    
+    $proxystream = new DriveStream();
+    $proxystream->ignition($googledrive, $cookie);
+    $proxystream->stream();
+    
+    $curl = curl_init();
     $payload = array(
         CURLOPT_URL => $googledrive,
         CURLOPT_HEADER => false,
         CURLOPT_USERAGENT => $useragent,
+        CURLOPT_TCP_FASTOPEN => 1,
+        CURLOPT_VERBOSE => 1,
         CURLOPT_CONNECTTIMEOUT => 0,
         CURLOPT_TIMEOUT => 1000,
         CURLOPT_FRESH_CONNECT => true,
@@ -55,9 +61,7 @@
         CURLOPT_NOBODY => false,
         CURLOPT_RETURNTRANSFER => false,
         CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_COOKIE => 'DRIVE_STREAM='.$cookie
-        );
-    $length = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-    curl_setopt_array($ch, $payload);
-    $streamproxy = curl_exec($ch);
-    return $streamproxy;
+    );
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("Cookie: DRIVE_STREAM=".$cookie));
+    curl_setopt_array($curl, $payload);
+    curl_exec($curl);
