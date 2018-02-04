@@ -1,3 +1,8 @@
+## v2.0.3
+
+- `class.DriveProxy.php` added functions for getting range
+- `stream.php` content-range bug fixed.
+
 ## v2.0.2
 
 - `class.DriveProxy.php` Added new class called "DriveStream".
