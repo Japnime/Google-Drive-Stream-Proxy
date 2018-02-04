@@ -62,6 +62,26 @@
         CURLOPT_RETURNTRANSFER => false,
         CURLOPT_FOLLOWLOCATION => true,
     );
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("Cookie: DRIVE_STREAM=".$cookie));
+    
+    if (isset($_SERVER['HTTP_RANGE']))
+    {
+        preg_match('/bytes=(\d+)-(\d+)?/', $_SERVER['HTTP_RANGE'], $range);
+        
+        $range = new DriveStream();   
+        $range->rangebyte($googledrive, $cookie);
+        $rangeresult = $range->result();
+        
+        $initial = intval($range[1]);
+        $final = $rangeresult - $initial -1;
+    
+        $header = array(
+            'Cookie: DRIVE_STREAM='.$cookie,
+            'Range: bytes=' . $initial . '-' . ($initial + $final) . '',
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+    } else {
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Cookie: DRIVE_STREAM=".$cookie));
+    }
+
     curl_setopt_array($curl, $payload);
     curl_exec($curl);
