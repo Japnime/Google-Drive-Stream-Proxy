@@ -7,7 +7,7 @@ An open source code which streams using the host itself to provide the initiatio
 
 ## Update
 - Two branches have been injected to this script, view for educational purposes or do it the way you wanted.
-- class.DriveProxy.php, LOG.md, example.php, stream.php will be deleted but you can check it ot [here](https://github.com/Japnime/Google-Drive-Stream-Proxy/tree/driveproxy) if you want to see it again.
+- class.DriveProxy.php, LOG.md, example.php, stream.php will be deleted but you can check it out [here](https://github.com/Japnime/Google-Drive-Stream-Proxy/tree/driveproxy) if you want to see it again.
 
 ## Information
 - You can check the update logs [here](https://github.com/japnimedev/Google-Drive-Stream-Proxy/blob/master/LOG.md).
