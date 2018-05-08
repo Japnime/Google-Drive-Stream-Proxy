@@ -5,18 +5,9 @@ An open source code which streams using the host itself to provide the initiatio
 
 "Once again, I'll make this script as a beta version to look for further patches and bugs for this little boy" -Modifier
 
-## Beta type example
-```php
-<?php
-// Drive Proxy Class
-require_once(__DIR__ .'/class.DriveProxy.php');
-
-// Create new class for id
-$drive = new DriveProxy();
-$drive->driveid('');
-$drive->proxy_link()
-?>
-```
+## Update
+- Two branches have been injected to this script, view for educational purposes or do it the way you wanted.
+- class.DriveProxy.php, LOG.md, example.php, stream.php will be deleted but you can check it ot [here](https://github.com/Japnime/Google-Drive-Stream-Proxy/tree/driveproxy) if you want to see it again.
 
 ## Information
 - You can check the update logs [here](https://github.com/japnimedev/Google-Drive-Stream-Proxy/blob/master/LOG.md).
