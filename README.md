@@ -10,7 +10,7 @@ An open source code which streams using the host itself to provide the initiatio
 - class.DriveProxy.php, LOG.md, example.php, stream.php will be deleted but you can check it out [here](https://github.com/Japnime/Google-Drive-Stream-Proxy/tree/driveproxy) if you want to see it again.
 
 ## Information
-- You can check the update logs [here](https://github.com/japnimedev/Google-Drive-Stream-Proxy/blob/master/LOG.md).
+- You can check the update logs [here](https://github.com/japnimedev/Google-Drive-Stream-Proxy/blob/driveproxy/LOG.md).
 - If you have questions, just drop from the issues tab so I can answer it as soon as possible.
 - This script will be converted back as a beta since many of the functions bug out or result as error.
 - Thanks to this guy [p4v800m](https://github.com/p4v800m/google-drive-proxy-jwplayer), since he created this script.
